@@ -1,1 +1,0 @@
-gunicorn -k uvicorn.workers.UvicornWorker vader:vader_api
