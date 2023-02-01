@@ -37,8 +37,8 @@ async def analyze(payload: dict = Body(...)):
         return {
                 "sentiment": sentiment_dict,
                 "positive-words":pos_word_list,
-                "neutral-words":neu_word_list,
-                "negative-words":neg_word_list      
+                "negative-words":neg_word_list,
+                "neutral-words":neu_word_list    
                 }
     except Exception as e:
         return { "message": str(e) }
