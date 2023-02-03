@@ -1,3 +1,5 @@
 fastapi[all]
 nltk
 vaderSentiment
+matplotlib
+wordcloud
