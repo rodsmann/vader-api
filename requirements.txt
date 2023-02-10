@@ -3,3 +3,4 @@ nltk
 vaderSentiment
 matplotlib
 wordcloud
+scrapy
