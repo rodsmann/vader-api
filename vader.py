@@ -64,11 +64,11 @@ async def analyze(payload: dict = Body(...)):
 
         return {
                 "sentiment": sentiment_dict,
-                "positive-words":pos_word_list,
-                "negative-words":neg_word_list,
-                "neutral-words":neu_word_list,
-                "pos-image" : pos_image,
-                "neg-image" : neg_image
+                "positiveWords":pos_word_list,
+                "negativeWords":neg_word_list,
+                "neutralWords":neu_word_list,
+                "posImage" : pos_image,
+                "negImage" : neg_image
                 }
     except Exception as e:
         return { "message": str(e) }
