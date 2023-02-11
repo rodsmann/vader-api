@@ -9,7 +9,6 @@ import nltk
 nltk.download('punkt')
 # import pandas as pd
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import subprocess
 
 app = FastAPI()
 
@@ -73,17 +72,3 @@ async def analyze(payload: dict = Body(...)):
                 }
     except Exception as e:
         return { "message": str(e) }
-
-
-@app.post("/scrape")
-async def scrape_data(payload: dict = Body(...)):
-    try:
-        url = payload["url"]
-        command = f"scrapy crawl scraper -a start_url={url}"
-        process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        output, error = process.communicate()
-        if error:
-            raise Exception(error.decode('utf-8'))
-        return {"result": output.decode('utf-8')}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
