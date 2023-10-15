@@ -75,10 +75,16 @@ class testSpider(scrapy.Spider):
             return {
                 'words': test
             }
+    if("rodsmann-001-site1.ctempurl.com" in start_urls):
+        def parse(self, response):
+            test = response.css('div.paragraph').get()
+            return {
+                'words': test
+            }        
                     
     if("journal.com.ph" or "malaya.com.ph" or "sunstar.com.ph" or
          "philstar.com" or "bulatlat.com" or "mb.com.ph" or
-         "eaglenews.ph" or "bworldonline.com" or "inquirer.net" or "manilatimes.net" or "rodsmann.github.io" not in start_urls):
+         "eaglenews.ph" or "bworldonline.com" or "inquirer.net" or "manilatimes.net" or "rodsmann.github.io" or "rodsmann-001-site1.ctempurl.com" not in start_urls):
         def parse(self, response):
             return {
                 'message': "This Site is not supported"
