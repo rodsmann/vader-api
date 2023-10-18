@@ -17,7 +17,7 @@ class testSpider(scrapy.Spider):
             }
     if("inquirer.net" in start_urls):
         def parse(self, response):
-            test = response.css('div.article-content').get()
+            test = response.css('div.article-align').get()
             return {
                 'words': test
             }
